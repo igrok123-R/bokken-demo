@@ -84,6 +84,8 @@ a { color: inherit; text-decoration: none; }
   height: 2.4rem;
   width: auto;
   display: block;
+  border-radius: 50%;
+  margin-right: 0.6rem;
 }
 
 .footer-logo {
