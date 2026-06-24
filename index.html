@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bokken - Street Food Nikkei - Mostoles</title>
   <meta name="description" content="Cocina nikkei en Mostoles. Rolls, baos, fire woks, pokebowls y bubble teas desde 4,50 euros. Martes a domingo 12:30 a 24:00.">
+
+  <!-- OG / Social sharing -->
+  <meta property="og:title" content="Bokken — Street Food Nikkei · Mostoles">
+  <meta property="og:description" content="La fusion de Japon y Peru. Rolls, baos y woks. Desde 4,50 €. Mar a Dom 12:30–24:00.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -22,7 +31,17 @@
         <a href="https://www.ubereats.com/store/bokken-calle-de-la-concordia-6/hvcW6BlbQX22mR0-C2DBKQ" target="_blank" rel="noopener" class="nav-cta">Pedir</a>
       </li>
     </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#carta" class="mobile-nav-link">La Carta</a>
+    <a href="#info" class="mobile-nav-link">Donde Estamos</a>
+    <a href="https://www.ubereats.com/store/bokken-calle-de-la-concordia-6/hvcW6BlbQX22mR0-C2DBKQ" target="_blank" rel="noopener" class="btn btn-orange mobile-nav-cta">Pedir en Uber Eats</a>
+  </div>
 
   <main>
 
@@ -30,7 +49,7 @@
     <section class="hero" aria-label="Bokken Street Food Nikkei">
       <div class="hero-bg" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=2000&q=85"
+          src="img/hero.jpg"
           alt="Rolls nikkei de Bokken"
           width="2000"
           height="1333"
@@ -55,6 +74,7 @@
     <section id="carta" class="carta-sec">
       <div class="carta-hd">
         <h2 class="sec-title">La Carta</h2>
+        <p class="carta-hint">Toca cualquier plato para ver la foto y descripcion completa.</p>
       </div>
       <nav id="tabs-bar" class="tabs-bar" aria-label="Categorias del menu"></nav>
       <div class="menu-wrap">
@@ -90,6 +110,7 @@
 
     <!-- DONDE ESTAMOS -->
     <section id="info" class="info-sec">
+      <h2 class="sec-title info-title">Donde Estamos</h2>
       <div class="info-grid">
         <div class="info-col">
           <address>
@@ -117,6 +138,9 @@
           <a href="https://www.ubereats.com/store/bokken-calle-de-la-concordia-6/hvcW6BlbQX22mR0-C2DBKQ" target="_blank" rel="noopener" class="btn btn-orange">Pedir en Uber Eats</a>
         </div>
       </div>
+
+      <!-- Google Maps embed — loaded por JS tras consentimiento de cookies -->
+      <div id="map-container" class="map-container"></div>
     </section>
 
   </main>
@@ -132,6 +156,35 @@
     </div>
     <p class="footer-right">Tel: 919 52 28 81</p>
   </footer>
+
+  <!-- MODAL DE PLATO -->
+  <div id="dish-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+      <div class="modal-img-wrap" id="modal-img-wrap">
+        <img id="modal-img" src="" alt="" class="modal-img">
+      </div>
+      <div class="modal-info">
+        <div class="modal-header">
+          <h2 class="modal-name" id="modal-name"></h2>
+          <span class="modal-price" id="modal-price"></span>
+        </div>
+        <p class="modal-desc" id="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" class="cookie-banner" role="alertdialog" aria-label="Aviso de cookies de terceros">
+    <p class="cookie-text">Usamos cookies de Google Maps para mostrar el mapa interactivo. ¿Aceptas?</p>
+    <div class="cookie-actions">
+      <button id="cookie-accept" class="btn btn-orange btn-sm">Aceptar</button>
+      <button id="cookie-reject" class="btn btn-outline btn-sm">Rechazar</button>
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">&#x2191;</button>
 
   <script src="script.js"></script>
 </body>

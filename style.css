@@ -315,10 +315,12 @@ a { color: inherit; text-decoration: none; }
   column-gap: 2rem;
   padding: 1.35rem 0;
   border-bottom: 1px solid var(--w08);
+  cursor: pointer;
   transition: background 0.12s;
 }
 .menu-item:last-child { border-bottom: none; }
 .menu-item:hover { background: var(--bg-hover); }
+.menu-item:focus-visible { outline: 1px solid var(--orange); outline-offset: -1px; }
 
 .m-name {
   font-size: 1rem;
@@ -494,8 +496,9 @@ a { color: inherit; text-decoration: none; }
     --pad-x: 5vw;
   }
 
-  /* Nav: hide text links, keep CTA */
-  .nav-links li:not(:last-child) { display: none; }
+  /* Nav: hamburger takes over on mobile */
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
 
   /* Hero: tighter font + stacked CTAs */
   .hero-title {
@@ -542,6 +545,358 @@ a { color: inherit; text-decoration: none; }
 
 
 /* ====================================================
+   CARTA HINT
+   ==================================================== */
+.carta-hint {
+  font-size: 0.75rem;
+  color: var(--w40);
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+
+/* ====================================================
+   INFO TITLE
+   ==================================================== */
+.info-title {
+  margin-bottom: 2.5rem;
+}
+
+
+/* ====================================================
+   BUTTON SM
+   ==================================================== */
+.btn-sm {
+  font-size: 0.78rem;
+  padding: 0.58rem 1.1rem;
+}
+
+
+/* ====================================================
+   MAP
+   ==================================================== */
+.map-container {
+  margin-top: 3.5rem;
+  width: 100%;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 400px;
+  display: block;
+  border: 0;
+  filter: grayscale(0.15) contrast(0.95);
+}
+
+.map-placeholder {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: var(--bg-l);
+  border: 1px solid var(--w08);
+  text-align: center;
+  padding: 2rem;
+}
+
+.map-placeholder p {
+  font-size: 0.84rem;
+  color: var(--w40);
+  max-width: 28ch;
+  line-height: 1.65;
+}
+
+
+/* ====================================================
+   COOKIE BANNER
+   ==================================================== */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  background: rgba(12, 10, 9, 0.97);
+  border-top: 1px solid var(--w08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1.1rem var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-banner.visible {
+  transform: translateY(0);
+}
+
+.cookie-text {
+  font-size: 0.8rem;
+  color: var(--w40);
+  line-height: 1.55;
+  flex: 1;
+  min-width: 180px;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+
+/* ====================================================
+   DISH MODAL
+   ==================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(12, 10, 9, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: var(--bg-l);
+  border: 1px solid var(--w16);
+  overflow: hidden;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.open .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
+  background: rgba(12, 10, 9, 0.75);
+  border: 1px solid var(--w16);
+  color: var(--w70);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.modal-close:hover { color: var(--white); border-color: var(--w40); }
+
+.modal-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-info {
+  padding: 1.5rem 1.75rem 2rem;
+}
+
+.modal-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.modal-name {
+  font-family: var(--ff-brand);
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--white);
+}
+
+.modal-price {
+  font-family: var(--ff-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+.modal-desc {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--w70);
+  line-height: 1.65;
+  max-width: 50ch;
+}
+
+
+/* ====================================================
+   MOBILE — new additions
+   ==================================================== */
+@media (max-width: 768px) {
+  /* Bottom-sheet modal on mobile */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .modal-card {
+    max-width: 100%;
+    border-bottom: none;
+    transform: translateY(100%);
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .modal-overlay.open .modal-card {
+    transform: translateY(0);
+  }
+
+  /* Map height on mobile */
+  .map-container iframe,
+  .map-placeholder {
+    height: 280px;
+  }
+
+  /* Cookie banner stacked on very small screens */
+  .cookie-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+
+/* ====================================================
+   HAMBURGER BUTTON
+   ==================================================== */
+.nav-hamburger {
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  z-index: 110;
+  /* hidden on desktop via min-width query below */
+}
+
+@media (min-width: 769px) {
+  .nav-hamburger { display: none; }
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* ====================================================
+   MOBILE NAV OVERLAY
+   ==================================================== */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  background: var(--bg);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.mobile-nav.open { display: flex; }
+
+.mobile-nav-link {
+  font-family: var(--ff-brand);
+  font-size: clamp(2.75rem, 13vw, 5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  transition: color 0.15s;
+  padding: 0.35rem 0;
+  line-height: 1;
+}
+.mobile-nav-link:hover { color: var(--orange); }
+
+.mobile-nav-cta {
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+  padding: 0.85rem 2.25rem;
+}
+
+
+/* ====================================================
+   SCROLL TO TOP
+   ==================================================== */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 90;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+}
+.scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.scroll-top:hover  { transform: translateY(-2px); }
+.scroll-top:active { transform: scale(0.95); }
+
+
+/* ====================================================
    REDUCED MOTION
    ==================================================== */
 @media (prefers-reduced-motion: reduce) {
@@ -552,4 +907,10 @@ a { color: inherit; text-decoration: none; }
   }
 
   #menu-body { transition: none; }
+
+  .modal-card,
+  .modal-overlay,
+  .cookie-banner {
+    transition: none;
+  }
 }
