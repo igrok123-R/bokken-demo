@@ -13,7 +13,7 @@ window.addEventListener('scroll', () => {
 const menuData = {
   baos: {
     label: 'Baos',
-    img: 'img/dishes/baos.jpg',
+    img: 'img/dishes/placeholder.svg',
     items: [
       { name: 'Bao Classic',  price: '4,50', desc: 'Carne desmechada, salsa hoisin, pepino y cebolleta.' },
       { name: 'Crispy Bao',   price: '4,50', desc: 'Pollo en tempura, mayonesa wasabi, lechuga, zanahoria encurtida.' },
@@ -23,7 +23,7 @@ const menuData = {
   },
   rolls: {
     label: 'Rolls',
-    img: 'img/dishes/rolls.jpg',
+    img: 'img/dishes/placeholder.svg',
     items: [
       { name: 'Bokken Roll',   price: '8,00', desc: 'Panceta desmechada, salsa bokken, cebolla frita, cebolleta. Panko. 7 piezas.' },
       { name: 'Crispy Salmon', price: '8,00', desc: 'Salmon fresco, aguacate, teriyaki, cebolleta. Panko. 7 piezas.' },
@@ -36,7 +36,7 @@ const menuData = {
   },
   woks: {
     label: 'Fire Woks',
-    img: 'img/dishes/woks.jpg',
+    img: 'img/dishes/placeholder.svg',
     items: [
       { name: 'Pad Thai',         price: '5,50', desc: 'Fideos de arroz salteados al wok, huevo, brotes de soja, cacahuete, lima. Elige proteina.' },
       { name: 'Wok Bokken',       price: '5,50', desc: 'Verduras de temporada con salsa bokken y arroz. Nuestra receta. Elige proteina.' },
@@ -46,7 +46,7 @@ const menuData = {
   },
   pokebowls: {
     label: 'Pokebowls',
-    img: 'img/dishes/pokebowls.jpg',
+    img: 'img/dishes/placeholder.svg',
     items: [
       { name: 'Classic', price: '7,85', desc: 'Salmon, aguacate, edamame, zanahoria, maiz, arroz de sushi.' },
       { name: 'Tuna',    price: '8,50', desc: 'Atun fresco, mango, pepino, cebolla morada, espinacas, arroz.' },
@@ -56,7 +56,7 @@ const menuData = {
   },
   teas: {
     label: 'Bubble Teas',
-    img: 'img/dishes/teas.jpg',
+    img: 'img/dishes/placeholder.svg',
     items: [
       { name: 'Te Clasico',  price: '4,50', desc: 'Te negro con leche y perlas de tapioca.' },
       { name: 'Matcha',      price: '4,75', desc: 'Te matcha con leche de soja y perlas de tapioca.' },
@@ -66,7 +66,7 @@ const menuData = {
   },
   fritos: {
     label: 'Fritos',
-    img: 'img/dishes/fritos.jpg',
+    img: 'img/dishes/placeholder.svg',
     items: [
       { name: 'Gyozas (6 ud)',        price: '3,95', desc: 'Empanadillas japonesas de cerdo y col, vapor y plancha. Con salsa gyoza.' },
       { name: 'Edamame',              price: '2,50', desc: 'Vainas de soja al vapor con sal en escamas.' },
@@ -76,7 +76,7 @@ const menuData = {
   },
   combos: {
     label: 'Combos',
-    img: 'img/dishes/combos.jpg',
+    img: 'img/dishes/placeholder.svg',
     items: [
       { name: 'Bao + Bubble Tea', price: '8,50',  desc: 'Elige 1 bao y 1 bubble tea.' },
       { name: 'Roll + Wok',       price: '12,00', desc: 'Elige 1 roll y 1 wok. El almuerzo completo.' },

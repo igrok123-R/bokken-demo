@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#111009"/>
+  <rect x="1" y="1" width="798" height="498" fill="none" stroke="#F5C400" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.3"/>
+  <text x="400" y="220" font-family="'Barlow Condensed', sans-serif" font-size="72" font-weight="700" fill="#F5C400" text-anchor="middle" letter-spacing="4" opacity="0.9" text-transform="uppercase">TU FOTO</text>
+  <text x="400" y="300" font-family="'Barlow Condensed', sans-serif" font-size="72" font-weight="700" fill="#F5C400" text-anchor="middle" letter-spacing="4" opacity="0.9">AQUÍ</text>
+  <text x="400" y="360" font-family="'Outfit', sans-serif" font-size="18" font-weight="400" fill="#F0EBE3" text-anchor="middle" opacity="0.3">imagen del plato</text>
+</svg>
